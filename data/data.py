@@ -1,4 +1,7 @@
-unit_cost = {
+# The system consist of 12 conventional power plants and 6 wind power plants
+
+# Unit costs for conventional power plants, The unit cost for wind power plants is 0.
+unit_cost_G = {
     "Unit": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "C_i": [13.32, 13.32, 20.7, 20.93, 26.11, 10.52, 10.52, 6.02, 5.47, 0, 10.52, 10.89],
     "C_u": [15, 15, 10, 8, 7, 16, 16, 0, 0, 0, 17, 16],
@@ -10,8 +13,8 @@ unit_cost = {
     "U_ini": [1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
     "T_ini": [22, 22, -2, -1, -1, -2, 10, 50, 16, 24, 10, 50]
 }
-
-technical_data_units= {
+# Technical data for conventional power plants
+technical_data_G= {
     "Unit": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "Node": [1, 2, 7, 13, 15, 15, 16, 18, 21, 22, 23, 23],
     "P_max": [152, 152, 350, 591, 60, 155, 155, 400, 400, 300, 310, 350],
@@ -23,6 +26,19 @@ technical_data_units= {
     "UT": [8, 8, 8, 12, 4, 8, 8, 1, 1, 0, 8, 8],
     "DT": [4, 4, 8, 10, 2, 8, 8, 1, 1, 0, 8, 8]
 }
+
+
+# Technical data for wind power plants
+technical_data_W = {
+    "Unit": [1, 2, 3, 4, 5, 6],
+    "Node": [3, 5, 7, 16, 21, 23],
+    "Lat": [],
+    "Lon": [],
+    "P_max": [103, 104, 85, 81, 85, 82]
+}
+
+
+
 
 
 
