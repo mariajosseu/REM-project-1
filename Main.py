@@ -8,18 +8,23 @@ from data.data import unit_cost_G, technical_data_G, technical_data_W
 
 num_variables_G = 12
 num_variables_W = 6
-# total constraints: one upper and one lower per unit (gen + wind)
-num_constraints_U = num_variables_G + num_variables_W
-num_constraints_L = num_variables_G + num_variables_W
+num_variables_D = 17
+
+# total constraints: one upper and one lower per unit (gen + wind) and per load
+num_constraints_U = num_variables_G + num_variables_W + num_variables_D
+num_constraints_L = num_variables_G + num_variables_W + num_variables_D
+#num_constraints_D = num_variables_D
 
 # define variable and constraint names consistently
-VARIABLES = [f"g{i+1}" for i in range(num_variables_G)] + [f"w{i+1}" for i in range(num_variables_W)]
+VARIABLES = [f"g{i+1}" for i in range(num_variables_G)] + [f"w{i+1}" for i in range(num_variables_W)] + [f"d{i+1}" for i in range(num_variables_D)]
 U_KEYS = [f"u{i+1}" for i in range(num_constraints_U)]
 L_KEYS = [f"l{i+1}" for i in range(num_constraints_L)]
+
 
 # objective coefficients
 objective_coeff = {f"g{i+1}": unit_cost_G["C_i"][i] for i in range(num_variables_G)}
 objective_coeff |= {f"w{i+1}": 0 for i in range(num_variables_W)}
+objective_coeff |= {f"d{i+1}": 0 for i in range(num_variables_D)}
 
 # helper to build a constraint coeff dict that contains all variables (zero for others)
 def one_hot_coeff_for_index(idx, sign=1):

@@ -41,4 +41,3 @@ technical_data_W = {
 
 
 
-
